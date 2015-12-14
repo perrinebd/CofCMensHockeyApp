@@ -14,7 +14,7 @@ public class Staff extends OrgMember{
   
     /**
      * Creates a new OrgMember object of type Staff which has a specific game
-     * day position (ex. Score Keeper).
+     * day position (e.g., Score Keeper).
      * 
      * @param fN OrgMembers first name
      * @param lN OrgMembers last name
