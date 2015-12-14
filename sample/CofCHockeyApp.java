@@ -164,20 +164,40 @@ public class CofCHockeyApp
         Team roster = new Team();
 
         // Two default Player Objects to populate the roster
-        Player brettP = new Player("Brett", "Perrine", "Defense", 21, 2017, 20064966);
-
+        Player brettP = new Player("Brett", "Perrine", "Defense", 21, 2017, 20064966, 6, 1, 165, "L");
         Player rileyK = new Player("Riley", "Fromerth", "forward", 57, 2018, 20034567, 6, 1, 210, "L");
-        
-        Player artemiP = new Player("Artemi", "Panarin", "forward", 72, 2019, 20037408, 5, 1, 115, "L");
-        
-        Player jLeblanc = new Player("Justin", "LeBlanc", "Forward", 15, 2019, 20394884, 5, 9, 195, "L");
+        Player jLeblanc = new Player("Justin", "LeBlanc", "Forward", 16, 2019, 20394884, 5, 9, 195, "L");
         Player thaler = new Player("Tj", "Thaler", "Forward", 27, 2017, 203958754, 5, 9, 180, "R");
         Player savino = new Player("Billy", "Savino", "Forward", 22, 2018, 20341254, 6, 2, 200, "R");
         Player leddy = new Player("Kyle", "Leddy", "Forward", 44, 2018, 20395421, 5, 11, 180, "R");
         Player tamsky = new Player("Benjamin", "Tamsky", "Forward", 2, 2019, 201274537, 5, 7, 170, "R");
         Player ging = new Player("Patrick", "Ginger", "Defense", 6, 2018, 201928837, 5, 6, 175, "R");
         Player traxler = new Player("Philip", "Traxler", "Defense", 5, 2019, 20192834, 5, 9, 185, "R");
+        Player mander = new Player("Pavel", "Mander", "Defense", 26, 2018, 20192234, 6, 2, 200, "L");
+        Player peller = new Player("Jacob", "Peller", "Forward", 17, 2019, 20199867, 6, 0, 180, "R");
+        Player hoff = new Player("Joshua", "Hoff", "Defense", 10, 2016, 20101010, 6, 0, 200, "R");
+        Player craig = new Player("Brian", "Craig", "Forward", 28, 2018, 20192454, 5, 8, 177, "R");
+        Player hawes = new Player("Brandon", "Hawes", "Forward", 14, 2019, 20192224, 6, 5, 215, "R");
+        Player hartman = new Player("Brady", "Hartman", "Forward", 9, 2018, 298334534, 5, 9, 190, "R");
+        Player kostr = new Player("Luke", "Kostrzewski", "Forawrd", 15, 2019, 20192834, 6, 1, 170, "R");
+        Player sliker = new Player("Evan", "Sliker", "Defense", 8, 2019, 201938475, 6, 0, 200, "L");
+        Player house = new Player("Nicholas", "House", "Defense",35, 2019, 20029394, 5, 11, 165, "L");
+        Player epstien = new Player("Brett", "Epstien", "Goalie", 33, 2018, 20192777, 5, 8, 165, "R");
+        Player wiser = new Player("Michael", "Wiser", "Goalie", 31, 2018, 20192834, 5, 11, 180, "R");
+        Player diBrigia = new Player("Joey", "DiBrigida", "Goalie", 30, 2017, 20192334, 5, 9, 185, "R");
 
+        epstien.setStats(0, 0, 0, 0);
+        wiser.setStats(0, 0, 0, 0);
+        diBrigia.setStats(0, 0, 0, 0);
+        sliker.setStats(9, 4, 10, 12);
+        kostr.setStats(8, 0, 0, 2);
+        hartman.setStats(12, 1, 3, 0);
+        hawes.setStats(12, 1, 6, 0);
+        craig.setStats(12, 2, 5, 6);
+        house.setStats(10, 1, 2, 8);
+        hoff.setStats(11, 4, 3, 23);
+        peller.setStats(12, 6, 1, 2);
+        mander.setStats(11, 5, 5, 4);
         traxler.setStats(12, 4, 7, 8);
         ging.setStats(12, 3, 9, 27);
         tamsky.setStats(11, 4, 8, 2);
@@ -186,13 +206,29 @@ public class CofCHockeyApp
         thaler.setStats(12, 11, 10, 21);
         brettP.setStats(5, 8, 2, 17);
         rileyK.setStats(7, 9, 12, 9);
-        artemiP.setStats(3, 7, 4, 5);
         jLeblanc.setStats(11, 9, 2, 10);
-        // adding the two default Player objects to the ArrayList roster
+
         roster.addPlayer(brettP);
         roster.addPlayer(rileyK);
-        roster.addPlayer(artemiP);
         roster.addPlayer(jLeblanc);
+        roster.addPlayer(thaler);
+        roster.addPlayer(savino);
+        roster.addPlayer(leddy);
+        roster.addPlayer(tamsky);
+        roster.addPlayer(ging);
+        roster.addPlayer(traxler);
+        roster.addPlayer(mander);
+        roster.addPlayer(peller);
+        roster.addPlayer(hartman);
+        roster.addPlayer(hoff);
+        roster.addPlayer(craig);
+        roster.addPlayer(hawes);
+        roster.addPlayer(kostr);
+        roster.addPlayer(sliker);
+        roster.addPlayer(house);
+        roster.addPlayer(diBrigia);
+        roster.addPlayer(wiser);
+        roster.addPlayer(epstien);
 
         return roster;
     }

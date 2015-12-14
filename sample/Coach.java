@@ -56,6 +56,10 @@ public class Coach extends OrgMember{
             
     }
 
+    public void setGradYear()
+    {
+
+    }
     /**
      * Gets the number of wins the coach has
      * 
@@ -173,7 +177,8 @@ public class Coach extends OrgMember{
         
         return output;
     }
-    
+
+    public String getPostition() {return "Coach";}
     /**
      * Creates three different Coach objects in order to show the exception handling
      * @param args
