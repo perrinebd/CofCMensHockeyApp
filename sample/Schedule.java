@@ -7,7 +7,7 @@ package sample;
 import java.util.ArrayList;
 
 /**
- *
+ * An ArrayList of Game objects for CofC that represents the game schedule.
  * @author Brett
  */
 public class Schedule 
@@ -39,11 +39,9 @@ public class Schedule
     {
         this.gameSchedule = new ArrayList<>();
         gameSchedule.add(newGame);
-        
     }
     
     /**
-     *
      * @param newGame the new Game to be added to existing ArrayList 
      * gameSchedule
      */
@@ -51,13 +49,21 @@ public class Schedule
     {
         gameSchedule.add(newGame);
     }
-    
-    
+
+    /**
+     * Searches the ArrayList schedule for the game at index
+     * @param index the game's order number
+     * @return the game at index.
+     */
     public Game findGame(int index)
     {
         return gameSchedule.get(index);
     }
-    
+
+    /**
+     * Removes Game object from ArrayList at location index.  1 being the first game 23 being the last
+     * @param index the game's number you'd wish to remove
+     */
     public void removeGame(int index)
     {
         assert gameSchedule.size() >= 0: gameSchedule.remove(index);

@@ -5,7 +5,8 @@
  */
 package sample;
 /**
- *
+ * Player is a subclass of OrgMember which has parameters for most aspects of a Player i.e. height weight as well
+ * as statistic aquired during gameplay.
  * @author Brett 
  */
 public class Player extends OrgMember{
@@ -39,7 +40,15 @@ public class Player extends OrgMember{
         this.playerNum = num;
         
     }
-    
+
+    /**
+     * Creates an OrgMember object of type Player
+     * @param name - the full name of the player
+     * @param pos - the position of the player
+     * @param num - players game number
+     * @param gY - players graduation year
+     * @param sID - players studentID number
+     */
     public Player(String name, String pos, int num, int gY, int sID)
     {
         super(name, pos, gY, sID);
@@ -151,7 +160,6 @@ public class Player extends OrgMember{
     public void setFeet(int ft)
     {
         feet = ft;
-        
     }
     
     /**
@@ -160,11 +168,33 @@ public class Player extends OrgMember{
      */
     public int getFeet()
     {
-        
         return feet;
     }
 
     /**
+     * Returns the number of inches (ex. 6'1" returns 1)
+     *
+     * @return the players inches in height
+     */
+    public int getInches() {
+        return inches;
+    }
+
+    /**
+     * Sets the number of inches to the player object.
+     *
+     * @param inches - the inches to set
+     * @throws IllegalArgumentException if number is negative or greater than 11
+     */
+    public void setInches(int inches) {
+        if (inches < 0 || inches > 12)
+            throw new IllegalArgumentException();
+
+        this.inches = inches;
+    }
+
+    /**
+     * Gets the weight of the player
      * @return the weight
      */
     public int getWeight() 
@@ -173,6 +203,7 @@ public class Player extends OrgMember{
     }
 
     /**
+     * Sets the players weight to the integer parameter
      * @param weight the weight to set for the Player
      */
     public void setWeight(int weight) 
@@ -181,7 +212,8 @@ public class Player extends OrgMember{
     }
 
     /**
-     * @return the shot
+     * Gets the players shot hand
+     * @return the shothand of the player
      */
     public String getShot() 
     {
@@ -189,6 +221,7 @@ public class Player extends OrgMember{
     }
 
     /**
+     * Sets the shot hand of the player
      * @param shot the shot to set
      */
     public void setShot(String shot) 
@@ -197,7 +230,8 @@ public class Player extends OrgMember{
     }
 
     /**
-     * @return the gamesPlayed
+     * Gets the number of gamed played by the player
+     * @return the games played by the player
      */
     public int getGamesPlayed() 
     {
@@ -205,7 +239,8 @@ public class Player extends OrgMember{
     }
 
     /**
-     * @param gamesPlayed the gamesPlayed to set
+     * Sets the players number of games played to param
+     * @param gamesPlayed the number of games the player played to set
      */
     public void setGamesPlayed(int gamesPlayed) 
     {
@@ -222,7 +257,8 @@ public class Player extends OrgMember{
     }
 
     /**
-     * @return the goals
+     * Gets the number of goals scored by the player
+     * @return the number of goals scored by the player
      */
     public int getGoals() 
     {
@@ -230,7 +266,8 @@ public class Player extends OrgMember{
     }
 
     /**
-     * @param goals the goals to set
+     *Sets the number of goals scored by the player
+     * @param goals the players number of goals to set
      */
     public void setGoals(int goals) 
     {
@@ -238,7 +275,7 @@ public class Player extends OrgMember{
     }
     
     /**
-     *
+     *Add's the param to the number of goals the player already has.
      * @param goal number of goals to add to Player's goal total
      */
     public void addGoals(int goal)
@@ -247,7 +284,8 @@ public class Player extends OrgMember{
     }
 
     /**
-     * @return the assists
+     * Gets the number of assists the player has
+     * @return the players number of assists
      */
     public int getAssists() 
     {
@@ -255,7 +293,7 @@ public class Player extends OrgMember{
     }
 
     /**
-     * @param assists the assists to set
+     * @param assists the plaeyrs number of assists to set
      */
     public void setAssists(int assists) 
     {
@@ -263,7 +301,7 @@ public class Player extends OrgMember{
     }
     
     /**
-     *
+     *  Add's the number of assists to the already existing number of assists for the player.
      * @param assist number of assist to add to Player's assist total
      */
     public void addAssist(int assist)
@@ -272,7 +310,7 @@ public class Player extends OrgMember{
     }
 
     /**
-     * @return the Player's penaltyMinutes
+     * @return the Player's number of penalty minutes
      */
     public int getPenaltyMinutes() 
     {
@@ -280,7 +318,7 @@ public class Player extends OrgMember{
     }
 
     /**
-     * @param penaltyMinutes the penaltyMinutes to set
+     * @param penaltyMinutes the players number of penalty minutes to set
      */
     public void setPenaltyMinutes(int penaltyMinutes) 
     {
@@ -300,7 +338,7 @@ public class Player extends OrgMember{
     /**
      * Gets the player's game number
      * 
-     * @return the playerNum
+     * @return the players game (jersey) number
      */
     public int getPlayerNum() 
     {
@@ -309,13 +347,13 @@ public class Player extends OrgMember{
 
     /**
      * Set the players game number
-     * @param pN the player's Nnmber to set
+     * @param pN the player's nummber to set
      */
     public void setPlayerNum(int pN) 
     {
         this.playerNum = pN;
     }
-   
+
     @Override
     public String toString()
     {
@@ -334,27 +372,5 @@ public class Player extends OrgMember{
                              + goalString + assistString + outcomeString;
         
         return "Player Info: " + playerInfo + "\n";
-    }
-
-    /**
-     * Returns the number of inches (ex. 6'1" returns 1)
-     * 
-     * @return the players inches in height
-     */
-    public int getInches() {
-        return inches;
-    }
-
-    /**
-     * Sets the number of inches to the player object.
-     * 
-     * @param inches - the inches to set
-     * @throws IllegalArgumentException if number is negative or greater than 11
-     */
-    public void setInches(int inches) {
-        if (inches < 0 || inches > 12)
-            throw new IllegalArgumentException();
-        
-        this.inches = inches;
     }
 }

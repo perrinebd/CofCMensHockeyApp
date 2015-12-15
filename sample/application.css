@@ -1,9 +1,21 @@
-/*
-    Document   : application.css
-*/
+#pane{
+    -fx-background-color:#800000;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
 
-.scene{
-    -fx-font-size: 16pt;
-    -fx-font-family: "Courier New";
-    -fx-background-color:#00066;
+#submitButton{
+      border-radius: 28px;
+      border-radius: 28px;
+      border-radius: 28px;
+      font-family: Georgia;
+      color: #FFFFFF;
+      font-size: 20px;
+      -fx-background-color: linear-gradient(#ffd700, #ffd700);
+      padding: 10px 20px 10px 20px;
+      text-decoration: none;
+}
+#textLabel {
+    -fx-text-fill: #FFFFFF;
 }

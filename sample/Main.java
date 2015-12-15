@@ -12,10 +12,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This class drives the program mainly by passing an integer to CofCHockeyApp.run() which allows you
+ * navigate the menu.
+ */
 public class Main extends Application implements Initializable{
 	@FXML private Button submitButton;
 	@FXML private TextField inputField;
@@ -23,22 +28,16 @@ public class Main extends Application implements Initializable{
 	@FXML private TextArea console;
 	
 	private CofCHockeyApp app;
-	private Team roster;
-	private Coach coach;
-	private Game game;
-	private OrgMember orgMem;
-	private Staff staff;
-	private Schedule schedule;
-	private String selection = "0";
-	private boolean initialMenu = true;
+	private CofCHockeyApp app2;
 
 	@Override
 	public void start(Stage primaryStage) {
 		
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("HockeyAppHUIController.fxml"));
+			root.setId("pane");
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add("path/application.css");
+			scene.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("C of C Hockey App");
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -49,25 +48,15 @@ public class Main extends Application implements Initializable{
 
 	@FXML
 	private void handleButtonAction(ActionEvent event) {
-		if (initialMenu) {
-			selection = inputField.getText();
-			initialMenu = false;}
-		app.run(selection);
-		/*if (app.getStage() == 1)
-		{
-			app.createPlayer(roster);
-		}
-		else if(app.getStage() == 2)
-		{
-			
-		}*/
-			
-		
+		app.run(inputField.getText());
+		inputField.clear();
+		app.mainMenu();
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		app = new CofCHockeyApp(console, inputField);
 		app.run(inputField.getText());
+		app.mainMenu();
 	}
 }

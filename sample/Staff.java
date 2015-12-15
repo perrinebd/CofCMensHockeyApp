@@ -6,7 +6,7 @@
 package sample;
 
 /**
- *
+ * Subclass of OrgMember for staff members, who will perform none play related tasks for the organization.
  * @author Brett Perrine
  */
 public class Staff extends OrgMember{
@@ -61,7 +61,7 @@ public class Staff extends OrgMember{
         String gameDayPosString = " | Game Day Position: " + gameDayPosition;
         
         String output = nameString + positionString + gradYearString +
-                        studentIDString + gameDayPosString;
+                        studentIDString + gameDayPosString + "\n";
         return output;
     }
     

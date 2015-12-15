@@ -5,8 +5,9 @@
  */
 package sample;
 /**
- *
- * @author Brett
+ * OrgMember is the super class for Player, Coach and Staff. It is mainly comprised of the members position
+ * within the organization, the members name, their student ID and graduation year (except in the instance of Coach).
+ * @author Brett Perrine
  */
 public class OrgMember
 {
@@ -16,7 +17,14 @@ public class OrgMember
     private final String NAME;
     private int studentID;
     private int gradYear;
-    
+
+    /**
+     * Creates an OrgMember object
+     * @param name - the full name of the person to be created
+     * @param pos - position within the oganization
+     * @param gY - the graduation year of the student
+     * @param sID - studentID number
+     */
     public OrgMember(String name, String pos, int gY, int sID)
     {
         this.NAME = name;
@@ -33,11 +41,11 @@ public class OrgMember
      * @param pos - position of the OrgMember
      * @param gY - Graduation year of the OrgMember
      * @param sID - student ID number of the OrgMember
-     * @throws IlegalArgumentException if gradYear > 2019 or < 2015
+     * @throws IllegalArgumentException if the position isn't forward, coach, manager, defense or goalie.
+     * @throws IllegalArgumentException if the graduation year isn't between 2015-2019
      */
     public OrgMember (String fN, String lN, String pos, int gY, int sID)
-    {  
-        
+    {
         try
         {
         if (gY > 2019 || gY < 2015)
@@ -54,7 +62,8 @@ public class OrgMember
         try
         {
         if (! "defense".equalsIgnoreCase(pos) && ! "forward".equalsIgnoreCase(pos)
-                && ! "manager".equalsIgnoreCase(pos) && ! "coach".equalsIgnoreCase(pos))
+                && ! "manager".equalsIgnoreCase(pos) && ! "coach".equalsIgnoreCase(pos)
+                && !"goalie".equalsIgnoreCase(pos))
             throw new IllegalArgumentException();
         
             this.position = pos;
@@ -67,35 +76,25 @@ public class OrgMember
         }
         this.studentID = sID;
         this.NAME = fN + " " + lN;
-     
     }
     
     /**
      * Creates a basic OrgMember object to be used in the Coach constructor
      * @param fN - first name of OrgMember
      * @param lN - last name of OrgMember
-     * @param pos - OrgMembers position within the Organization 
-     * @throws IlegalArgumentException if the position is invalid
+     * @param pos - OrgMembers position within the Organization
+     * @throws IllegalArgumentException if the position isn't forward, coach, manager, defense or goalie.
      */
     public OrgMember (String fN, String lN, String pos)
     {
         this.NAME = fN + " "+ lN;
         
         if (! "defense".equalsIgnoreCase(pos) && ! "forward".equalsIgnoreCase(pos)
-                && ! "manager".equalsIgnoreCase(pos) && ! "coach".equalsIgnoreCase(pos))
+                && ! "manager".equalsIgnoreCase(pos) && ! "coach".equalsIgnoreCase(pos)
+                && !"goalie".equalsIgnoreCase(pos))
             throw new IllegalArgumentException("That isn't a valid position!");
         
         this.position = pos;
-    }
-   
-    @Override
-    public String toString()
-    {
-        String memberInfo = "Name: " + NAME + " | Student ID: " + getStudentID() + 
-                             " | Graduation Year: " + getGradYear() + 
-                            " | Position: " + getPosition();
-        
-        return memberInfo + "\n";
     }
 
     /**
@@ -137,23 +136,28 @@ public class OrgMember
     /**
      * Sets the OrgMembers new position
      * @param pos the position to set
+     * @throws IllegalArgumentException if the position isn't forward, coach, manager, defense or goalie.
      */
     public void setPosition(String pos) 
     {
         try{
         if (! "defense".equalsIgnoreCase(pos) && ! "forward".equalsIgnoreCase(pos)
-                && ! "manager".equalsIgnoreCase(pos) && ! "coach".equalsIgnoreCase(pos))
+                && ! "manager".equalsIgnoreCase(pos) && ! "coach".equalsIgnoreCase(pos)
+                && !"goalie".equalsIgnoreCase(pos))
             throw new IllegalArgumentException("That is not a valid position");
            this.position = pos;
         }
-        catch (IllegalArgumentException e)
-        {
+        catch (IllegalArgumentException e) {
             System.err.println("IllegalArgumentException: " + "Positions must be"
-                             + " Manager, Coach, Forward, Defense or Goalie.");
+                    + " Manager, Coach, Forward, Defense or Goalie.");
         }
-        
     }
 
+    /**
+     * Sets the ID number to the student
+     * @param sID - the students ID number
+     */
+    public void setStudentID(int sID) {this.studentID = sID;}
     /**
      *  Gets the student ID number
      * @return the OrgMember's studentID number
@@ -176,37 +180,28 @@ public class OrgMember
      *  Sets the graduation year of the OrgMember to the param.  
      * @param gY the gradYear to set
      * @throws IllegalArgumentException if param isn't between 2015-2019
-     */    
-    public void setGradYear(int gY) 
-    {   
+     */
+    public void setGradYear(int gY)
+    {
         try{
-        if (gY > 2019 || gY < 2015)
-            throw new IllegalArgumentException();
-                                    this.gradYear = gY;
+            if (gY > 2019 || gY < 2015)
+                throw new IllegalArgumentException();
+            this.gradYear = gY;
         }
         catch (IllegalArgumentException e)
         {
             System.err.println("IllegalArgumentException: " + "Valid graduation "
-                             + " years fall between 2015 - 2019");
+                    + " years fall between 2015 - 2019");
         }
     }
-    
-    /**
-     *  Creates a test OrgMember object 'tori' to test exceptions.
-     *  
-     */
-    /*public static void main(String [] args)
+
+    @Override
+    public String toString()
     {
-        
-        OrgMember tori = new OrgMember("Tori", "Holmes", "Manager", 2016, 20001029);
-        System.out.println(tori.toString());
-        tori.setPosition("gfdg"); // results in an exception
-        
-        tori.setPosition("coach");
-        System.out.println(tori.toString());
-        tori.setGradYear(2015); // results in an exception
-        
-        System.out.println(tori.toString());
+        String memberInfo = "Name: " + NAME + " | Student ID: " + getStudentID() +
+                " | Graduation Year: " + getGradYear() +
+                " | Position: " + getPosition();
+
+        return memberInfo + "\n";
     }
-    */
 }
